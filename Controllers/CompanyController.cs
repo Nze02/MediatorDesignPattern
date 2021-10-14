@@ -29,6 +29,7 @@ namespace APIMediatorPattern.Controllers
         public async Task<Company> GetCompany([FromRoute] GetCompanyByIdQuery query) => await this.mediator.Send(query);
 
         [HttpPost]
-        public async Task<Company> CreateCompany([FromBody] Company company) => await mediator.Send(new AddCompanyCommand {Name = company.Name, Address = company.Address, Country = company.Country });
+        //public async Task<Company> CreateCompany([FromBody] Company company) => await mediator.Send(new AddCompanyCommand {Name = company.Name, Address = company.Address, Country = company.Country });
+        public async Task<Company> CreateCompany([FromBody] AddCompanyCommand query) => await mediator.Send(query);
     }
 }
